@@ -829,5 +829,18 @@ if(localStorage.getItem("grupo") != null){
   });
 
 
+  
+  btneliminarUser.addEventListener("click", function () {
+
+    
+      // Obtén el último elemento hijo del div
+      const ultimoElemento = contenedorUser.lastElementChild;
+      
+      // Remueve el último elemento hijo del div
+      contenedorUser.removeChild(ultimoElemento);
+
+  });
+
+
 
 });
