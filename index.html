@@ -32,12 +32,6 @@
                         <div class="col-4">
                             <div class="container mt-4 mb-3">
 
-                                <div class="button-center">
-                                    <button id="agregarUsuario" class="btn btn-success me-1 mb-3">
-                                        <i class="bi bi-person-fill"></i>
-                                        Agregar Usuario</button>
-                                </div>
-
                             </div>
                         </div>
                         
@@ -163,6 +157,19 @@
                             <div class="mb-3">
                                 <label for="fechaInicio" class="form-label">Fecha de Inicio:</label>
                                 <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" required>
+                                <script>
+                                    // Obtén la referencia al campo de fecha
+                                    var fechaInicioInput = document.getElementById('fechaInicio');
+                                
+                                    // Crea una nueva instancia de la fecha actual
+                                    var fechaActual = new Date();
+                                
+                                    // Formatea la fecha actual en el formato yyyy-mm-dd
+                                    var fechaActualFormateada = fechaActual.toISOString().split('T')[0];
+                                
+                                    // Asigna la fecha actual al campo de fecha como valor predeterminado
+                                    fechaInicioInput.value = fechaActualFormateada;
+                                </script>
                             </div>
                             <div class="mb-3">
                                 <label for="fechaFinal" class="form-label">Fecha Final:</label>
