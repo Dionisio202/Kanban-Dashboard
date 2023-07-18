@@ -197,6 +197,10 @@ if(localStorage.getItem("grupo") != null){
 
         habilitarActualizacion(botonEditar);
 
+        var botonCancelar = document.getElementById("cancelarEdicion");
+
+        deshabilitarActualizacion(botonCancelar);
+
         var botonCerrar = document.getElementById("cerrar");
 
         botonCerrar.addEventListener("click", function () {
@@ -415,15 +419,27 @@ if(localStorage.getItem("grupo") != null){
                    </div>
 
                    <div id="estado"></div>
+                    <div class="col-12">
 
+                    <div class="row">
+                    <div class="col-6">
+                    <div class="button-container-start">
+                    <button type="button" class="btn btn-primary" id="editarTarea" >Editar</button>
+                    
+                    <button type="submit" class="btn btn-primary" style="display: none;" id= "guardarTarea">Guardar</button>
+                      </div>
+                    </div>
+                    <div class="col-6">
                    <div class= "button-container">
-                   <button type="button" class="btn btn-primary" id="editarTarea" >Editar</button>
 
-                   <button type="submit" class="btn btn-primary" style="display: none;" id= "guardarTarea">Guardar</button>
 
                    <button type="button" class="btn btn-danger" id="eliminarTarea" style="margin-left: 10px;" >Eliminar</button>
-
+                   <button type="button" class="btn btn-warning" id="cancelarEdicion" style="margin-left: 10px; display: none;" >Cancelar Edicion</button>
+                   
                    </div>
+                      </div>
+                    </div>
+                  </div>
                </form>
            </div>
        </div>
@@ -479,10 +495,65 @@ if(localStorage.getItem("grupo") != null){
       var responsableEdit = document.getElementById("responsableEdit");
       responsableEdit.disabled = false;
 
+      var eliminarTarea = document.getElementById("eliminarTarea");
+      eliminarTarea.style.display = "none";
+
+      var cancelarEdicion = document.getElementById("cancelarEdicion");
+      cancelarEdicion.style.display = "block";
+
 
     });
 
   }
+
+  function deshabilitarActualizacion(botonCancelar) {
+
+    botonCancelar.addEventListener("click", function () {
+      console.log("se presiono el boton cancelar")
+
+      var botonGuardar = document.getElementById("guardarTarea");
+      botonGuardar.style.display = "none";
+
+      var botonEditar = document.getElementById("editarTarea");
+      botonEditar.style.display = "block";
+
+      var titulo = document.getElementById("nombreTarea2");
+      titulo.classList.add("bloqueado")
+      titulo.readOnly = true;
+      titulo.required = false;
+
+      var fechaInicio = document.getElementById("fechaInicio2");
+      fechaInicio.classList.add("bloqueado")
+      fechaInicio.readOnly = true;
+      fechaInicio.required = false;
+
+      var fechaFin = document.getElementById("fechaFinal2");
+      fechaFin.classList.add("bloqueado")
+      fechaFin.readOnly = true;
+      fechaFin.required = false;
+
+      var descripcion = document.getElementById("descripcion2");
+      descripcion.classList.add("bloqueado")
+      descripcion.readOnly = true;
+      descripcion.required = false;
+
+      var estado = document.getElementById("estado");
+      estado.disabled = true;
+      
+      var responsableEdit = document.getElementById("responsableEdit");
+      responsableEdit.disabled = true;
+
+      var eliminarTarea = document.getElementById("eliminarTarea");
+      eliminarTarea.style.display = "block";
+
+      var cancelarEdicion = document.getElementById("cancelarEdicion");
+      cancelarEdicion.style.display = "none";
+
+    });
+
+  }
+
+
 
 
   //BORRAR TAREA 
