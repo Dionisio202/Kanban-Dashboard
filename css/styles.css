@@ -194,6 +194,12 @@ body{
     align-items: end;
   }
 
+  .button-container-start {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+
 .button-center{
     display: flex;
     justify-content: center;
