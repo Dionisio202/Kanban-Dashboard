@@ -718,7 +718,7 @@ if(localStorage.getItem("grupo") != null){
 //RECUPERAR GRUPOS
   function recuperarGrupos() {
     return new Promise(function(resolve, reject) {
-      axios.get('../Conexion/nombreGrupos.php')
+      axios.get('Conexion/nombreGrupos.php')
         .then(function(response) {
           var datos = response.data;
           resolve(datos);
